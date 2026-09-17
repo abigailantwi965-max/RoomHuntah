@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RoomHuntah — Ghana Room Rental Platform | Your House Hunt Without The Unnecessary Walking</title>
+  <meta name="description" content="Find and rent authentic rooms, chamber and hall self-contained, and apartments across Accra, Kumasi, Cape Coast and Ghana without paying unnecessary agent fees.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-logo" id="brand-logo">
+        <span class="brand-icon">RH</span>
+        <span>RoomHuntah</span>
+        <div class="brand-gh-flag" title="Ghana Flag">
+          <span style="background: var(--ghana-red);"></span>
+          <span style="background: var(--ghana-yellow);"></span>
+          <span style="background: var(--ghana-green);"></span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="rooms.html" class="nav-link">Find a Room</a></li>
+          <li><a href="post-room.html" class="nav-link">Post a Room</a></li>
+          <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="rooms.html" class="btn btn-outline btn-sm">Browse Rooms</a>
+        <a href="post-room.html" class="btn btn-primary btn-sm">+ Post a Room (Free)</a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Slide Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+        <li><a href="rooms.html" class="mobile-nav-link">Find a Room</a></li>
+        <li><a href="post-room.html" class="mobile-nav-link">Post a Room</a></li>
+        <li><a href="how-it-works.html" class="mobile-nav-link">How It Works</a></li>
+        <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+      </ul>
+      <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
+        <a href="rooms.html" class="btn btn-outline" style="width: 100%;">Browse Available Rooms</a>
+        <a href="post-room.html" class="btn btn-primary" style="width: 100%;">+ Post a Room (Free)</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-pill">
+            <span>🇬🇭</span> Ghana's Direct Room Rental Platform
+          </div>
+          <h1 class="hero-title">
+            Your house hunt, <span class="highlight">without the unnecessary walking</span>.
+          </h1>
+          <p class="hero-subtitle">
+            Stop walking under the hot sun and paying agent registration fees. See real photos, watch video walkthroughs, and check prepaid meter availability before leaving your house.
+          </p>
+        </div>
+
+        <!-- Quick Search Bar -->
+        <div class="hero-search-box">
+          <form id="hero-search-form" action="rooms.html" method="GET" class="search-form-grid">
+            <div class="form-group-inline">
+              <label for="search-location">Where in Ghana?</label>
+              <input type="text" id="search-location" name="location" class="form-input" placeholder="e.g. Ayeduase, Madina, Oyarifa..." autocomplete="off">
+            </div>
+
+            <div class="form-group-inline">
+              <label for="search-type">Room Type</label>
+              <select id="search-type" name="type" class="form-select">
+                <option value="">All Room Types</option>
+                <option value="single-room">Single Room Self-Contained</option>
+                <option value="chamber-and-hall">Chamber &amp; Hall Self-Contained</option>
+                <option value="two-bedroom">2-Bedroom House / Flat</option>
+              </select>
+            </div>
+
+            <div class="form-group-inline">
+              <label for="search-budget">Max Rent (GH₵)</label>
+              <select id="search-budget" name="maxPrice" class="form-select">
+                <option value="">Any Budget</option>
+                <option value="500">Under GH₵ 500/mo</option>
+                <option value="800">Under GH₵ 800/mo</option>
+                <option value="1200">Under GH₵ 1,200/mo</option>
+                <option value="2000">Under GH₵ 2,000/mo</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" id="hero-search-btn" style="height: 48px;">
+              Find Room 🔍
+            </button>
+          </form>
+        </div>
+
+        <!-- Trust Highlights -->
+        <div class="hero-trust-bar">
+          <div class="trust-item">
+            <span class="trust-icon">✓</span>
+            <span>Zero Middlemen / Agent Fees</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">📹</span>
+            <span>Video Walkthrough Tours</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">⚡</span>
+            <span>Confirmed ECG Self-Meters</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">💧</span>
+            <span>Poly Tank &amp; Water Status</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why RoomHuntah: Problem vs Solution -->
+    <section class="section" style="background: #ffffff;" id="why-roomhuntah">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Why RoomHuntah</span>
+          <h2 class="section-title">Save Your Energy, Time &amp; Hard-Earned Cedis</h2>
+          <p class="section-desc">
+            See the difference between physical house hunting in Ghana versus using RoomHuntah.
+          </p>
+        </div>
+
+        <div class="comparison-container">
+          <div class="comparison-grid">
+            <div class="comp-header comp-header-aspect">House Hunting Aspect</div>
+            <div class="comp-header comp-header-old">Traditional Agent / Walking</div>
+            <div class="comp-header comp-header-new">With RoomHuntah</div>
+
+            <div class="comp-row">
+              <div class="comp-cell comp-cell-aspect">Registration &amp; Move-around Fees</div>
+              <div class="comp-cell comp-cell-old">GH₵ 100 - GH₵ 300 to agents upfront</div>
+              <div class="comp-cell comp-cell-new">GH₵ 0 Free to browse &amp; enquire</div>
+            </div>
+
+            <div class="comp-row">
+              <div class="comp-cell comp-cell-aspect">Knowing the Actual Room Condition</div>
+              <div class="comp-cell comp-cell-old">You only see it after trekking there</div>
+              <div class="comp-cell comp-cell-new">Real photos &amp; video walkthroughs</div>
+            </div>
+
+            <div class="comp-row">
+              <div class="comp-cell comp-cell-aspect">Light Bill &amp; Meter Clarity</div>
+              <div class="comp-cell comp-cell-old">Surprise shared meters with quarrels</div>
+              <div class="comp-cell comp-cell-new">Explicit "Self Meter" filter &amp; badge</div>
+            </div>
+
+            <div class="comp-row">
+              <div class="comp-cell comp-cell-aspect">Advance Rent Transparency</div>
+              <div class="comp-cell comp-cell-old">Often hidden until final meeting</div>
+              <div class="comp-cell comp-cell-new">Clear 1-yr or 2-yr advance displayed</div>
+            </div>
+
+            <div class="comp-row">
+              <div class="comp-cell comp-cell-aspect">Direct Landlord Contact</div>
+              <div class="comp-cell comp-cell-old">Middlemen block direct conversation</div>
+              <div class="comp-cell comp-cell-new">Direct enquiry sent to property owner</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Rooms Section -->
+    <section class="section" id="featured-rooms">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span class="section-tag">Featured Rooms</span>
+            <h2 class="section-title" style="margin-bottom: 0.25rem;">Available Rooms For Rent</h2>
+            <p class="section-desc">Authentic rooms with verified photos and walkthrough videos.</p>
+          </div>
+          <a href="rooms.html" class="btn btn-outline">View All Listings &rarr;</a>
+        </div>
+
+        <div class="rooms-grid" id="featured-rooms-container">
+          <!-- Populated dynamically from js/data.js -->
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+          <a href="rooms.html" class="btn btn-primary btn-lg">Explore More Rooms in Ghana &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section" style="background: #ffffff;" id="how-it-works-preview">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Easy 3-Step Process</span>
+          <h2 class="section-title">How RoomHuntah Works</h2>
+          <p class="section-desc">Finding your next room has never been this straightforward.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <div class="step-icon">🔎</div>
+            <h3 class="step-title">Search &amp; Filter</h3>
+            <p class="step-desc">Pick your preferred location, room type (single room, chamber &amp; hall), budget, and must-have facilities like a self ECG prepaid meter.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <div class="step-icon">📹</div>
+            <h3 class="step-title">Inspect Video &amp; Photos</h3>
+            <p class="step-desc">Watch an authentic walkthrough video of the room, check the compound, toilet/bathroom, and confirm water and road access.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <div class="step-icon">🤝</div>
+            <h3 class="step-title">Click "I'm Interested"</h3>
+            <p class="step-desc">Submit your details and expected move-in date. Your enquiry goes straight to the landlord to arrange an inspection without agent hassle.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Landlord CTA Banner -->
+    <section class="section" style="background: linear-gradient(135deg, var(--primary) 0%, #14532d 100%); color: #ffffff;" id="landlord-cta">
+      <div class="container" style="text-align: center; max-width: 760px;">
+        <span class="hero-pill" style="background: rgba(255, 255, 255, 0.15); color: #fff; border-color: rgba(255, 255, 255, 0.25);">For Landlords &amp; Property Caretakers</span>
+        <h2 style="font-size: 2.3rem; font-weight: 800; margin: 1rem 0; color: #fff; line-height: 1.2;">
+          Have An Empty Room to Rent? Post It Today for Free.
+        </h2>
+        <p style="font-size: 1.1rem; color: #bbf7d0; margin-bottom: 2rem; line-height: 1.6;">
+          Reach thousands of serious renters in Kumasi, Accra, Cape Coast, and across Ghana looking for rooms. Upload your room photos, record a quick walkthrough video, and receive enquiries directly.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a href="post-room.html" class="btn btn-accent btn-lg">Post Your Room Now &rarr;</a>
+          <a href="how-it-works.html" class="btn btn-outline btn-lg" style="color: #fff; border-color: #fff;">Learn How It Works</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>RoomHuntah 🇬🇭</h4>
+          <p>
+            The dedicated digital room rental platform for Ghana. Helping renters discover authentic rooms, inspect videos, and avoid unnecessary walking and middleman fees.
+          </p>
+          <div style="display: flex; gap: 0.5rem; font-size: 0.85rem; color: #94a3b8;">
+            <span>📍 Kumasi &amp; Accra, Ghana</span> | <span>📞 +233 24 000 0000</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Find a Room</a></li>
+            <li><a href="post-room.html">Post a Room</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Popular Locations</h5>
+          <ul class="footer-links">
+            <li><a href="rooms.html?location=Kumasi">Kumasi (Ayeduase / Kotei)</a></li>
+            <li><a href="rooms.html?location=Madina">Accra (Madina / Haatso)</a></li>
+            <li><a href="rooms.html?location=Oyarifa">Accra (Oyarifa)</a></li>
+            <li><a href="rooms.html?location=Cape+Coast">Cape Coast (UCC area)</a></li>
+            <li><a href="rooms.html?location=Kasoa">Kasoa / Central Region</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Renter Safety Tip</h5>
+          <p style="font-size: 0.82rem; color: #94a3b8; line-height: 1.5; background: #1e293b; padding: 0.85rem; border-radius: 8px; border-left: 3px solid var(--accent-gold);">
+            ⚠️ <strong>Never send Mobile Money (MoMo)</strong> for advance rent before physically visiting the house and verifying the property owner. RoomHuntah is completely free for room seekers.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 RoomHuntah. All rights reserved. Built for Ghana 🇬🇭.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="how-it-works.html">Safety Guidelines</a>
+          <a href="about.html">Privacy Policy</a>
+          <a href="about.html">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script>
+    // Populate Featured Rooms on Homepage
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById("featured-rooms-container");
+      if (container && typeof getRooms === "function") {
+        const rooms = getRooms().slice(0, 3); // Take top 3 for featured
+        container.innerHTML = rooms.map(renderRoomCard).join("");
+      }
+    });
+  </script>
+</body>
+</html>

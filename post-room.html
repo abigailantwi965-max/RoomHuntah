@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post a Room for Rent in Ghana — RoomHuntah</title>
+  <meta name="description" content="Landlords and property managers: post your available room in Accra, Kumasi, Cape Coast or across Ghana for free. Connect directly with serious renters.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-logo" id="brand-logo">
+        <span class="brand-icon">RH</span>
+        <span>RoomHuntah</span>
+        <div class="brand-gh-flag" title="Ghana Flag">
+          <span style="background: var(--ghana-red);"></span>
+          <span style="background: var(--ghana-yellow);"></span>
+          <span style="background: var(--ghana-green);"></span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="rooms.html" class="nav-link">Find a Room</a></li>
+          <li><a href="post-room.html" class="nav-link active">Post a Room</a></li>
+          <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="rooms.html" class="btn btn-outline btn-sm">Browse Rooms</a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Slide Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+        <li><a href="rooms.html" class="mobile-nav-link">Find a Room</a></li>
+        <li><a href="post-room.html" class="mobile-nav-link">Post a Room</a></li>
+        <li><a href="how-it-works.html" class="mobile-nav-link">How It Works</a></li>
+        <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+      </ul>
+      <div style="margin-top: 0.5rem;">
+        <a href="rooms.html" class="btn btn-outline" style="width: 100%;">Browse Rooms</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="post-wizard-container">
+      <!-- Left Column: Multi-Step Form -->
+      <section class="wizard-card">
+        <!-- Progress Steps Bar -->
+        <div class="wizard-steps-header">
+          <div class="wizard-step-node active" id="step-node-1">
+            <div class="node-circle">1</div>
+            <span class="node-text">Basic Info</span>
+          </div>
+          <div class="wizard-step-node" id="step-node-2">
+            <div class="node-circle">2</div>
+            <span class="node-text">Location</span>
+          </div>
+          <div class="wizard-step-node" id="step-node-3">
+            <div class="node-circle">3</div>
+            <span class="node-text">Facilities</span>
+          </div>
+          <div class="wizard-step-node" id="step-node-4">
+            <div class="node-circle">4</div>
+            <span class="node-text">Media &amp; Contact</span>
+          </div>
+        </div>
+
+        <form id="post-room-form">
+          <!-- STEP 1: Basic Room Info -->
+          <div class="form-step-content active" id="step-1">
+            <h2 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem;">Step 1: Basic Room Information</h2>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">Tell prospective renters about the room type and rental cost.</p>
+
+            <div class="form-group">
+              <label for="post-title">Listing Title *</label>
+              <input type="text" id="post-title" class="form-input" placeholder="e.g. Clean Chamber and Hall Self-Contained at Ayeduase" required>
+              <small>Use a descriptive title highlighting the room type and general area.</small>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="post-type">Room Type *</label>
+                <select id="post-type" class="form-select" required>
+                  <option value="chamber-and-hall">Chamber &amp; Hall Self-Contained</option>
+                  <option value="single-room">Single Room Self-Contained</option>
+                  <option value="two-bedroom">2-Bedroom Flat / House</option>
+                  <option value="single-room">Single Room (Shared Facilities)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="post-rent">Monthly Rent (GH₵) *</label>
+                <input type="number" id="post-rent" class="form-input" placeholder="e.g. 750" min="50" step="10" required>
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="post-advance">Advance Rent Terms *</label>
+                <select id="post-advance" class="form-select" required>
+                  <option value="12">1 Year Advance</option>
+                  <option value="24">2 Years Advance</option>
+                  <option value="6">6 Months Advance</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="post-bedrooms">Bedrooms</label>
+                <select id="post-bedrooms" class="form-select">
+                  <option value="1">1 Bedroom</option>
+                  <option value="2">2 Bedrooms</option>
+                  <option value="3">3 Bedrooms</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2: Location & Address -->
+          <div class="form-step-content" id="step-2">
+            <h2 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem;">Step 2: Room Location</h2>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">Help renters know where the property is situated so they do not get lost.</p>
+
+            <div class="form-group">
+              <label for="post-region">Region *</label>
+              <select id="post-region" class="form-select" required>
+                <option value="">Select Region</option>
+                <option value="Greater Accra">Greater Accra</option>
+                <option value="Ashanti">Ashanti</option>
+                <option value="Central">Central</option>
+                <option value="Eastern">Eastern</option>
+                <option value="Western">Western</option>
+                <option value="Volta">Volta</option>
+                <option value="Northern">Northern</option>
+              </select>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="post-city">City / Town *</label>
+                <input type="text" id="post-city" class="form-input" placeholder="e.g. Kumasi, Accra, Cape Coast" required>
+              </div>
+
+              <div class="form-group">
+                <label for="post-area">Neighbourhood / Landmark *</label>
+                <input type="text" id="post-area" class="form-input" placeholder="e.g. Ayeduase (Near KNUST Gate)" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3: Facilities & Amenities -->
+          <div class="form-step-content" id="step-3">
+            <h2 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem;">Step 3: Facilities &amp; Description</h2>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">Select the exact amenities available in this room.</p>
+
+            <div class="form-group">
+              <label>Select Available Amenities:</label>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin-top: 0.5rem;">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="facilities" value="Self Prepaid Meter" checked>
+                  <span>⚡ Self ECG Prepaid Meter</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="facilities" value="Gated Compound" checked>
+                  <span>🛡️ Gated / Fenced Compound</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="facilities" value="Poly Tank / Constant Water" checked>
+                  <span>💧 Poly Tank / Running Water</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="facilities" value="W/C Inside" checked>
+                  <span>🚿 Personal W/C &amp; Bath</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="facilities" value="Personal Kitchen">
+                  <span>🍳 Personal Kitchen</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="facilities" value="Tiled Floor">
+                  <span>✨ Tiled Floor</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="facilities" value="Car Parking">
+                  <span>🚗 Car Parking Space</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="facilities" value="Security / Caretaker">
+                  <span>👮 Security Guard / Caretaker</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="post-desc">Detailed Description</label>
+              <textarea id="post-desc" class="form-input" rows="4" placeholder="Describe the room, compound environment, road access, and nearby trotro stations or university gates..."></textarea>
+            </div>
+          </div>
+
+          <!-- STEP 4: Media & Landlord Contact -->
+          <div class="form-step-content" id="step-4">
+            <h2 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem;">Step 4: Photos, Video &amp; Contact</h2>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">Upload authentic room photos and enter your contact details.</p>
+
+            <div class="form-group">
+              <label>Room Photos (Select 1 or more)</label>
+              <div class="upload-dropzone" onclick="document.getElementById('post-photo-upload').click()">
+                <div class="upload-icon">📸</div>
+                <strong style="display: block; font-size: 1rem; margin-bottom: 0.25rem;">Click to Select Room Photos</strong>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">PNG, JPG, or JPEG (Max 10MB)</span>
+                <input type="file" id="post-photo-upload" multiple accept="image/*" style="display: none;">
+              </div>
+              <div class="image-preview-reel" id="uploaded-photos-reel"></div>
+            </div>
+
+            <div class="form-group">
+              <label>Room Walkthrough Video (Optional)</label>
+              <div class="upload-dropzone" style="padding: 1.25rem;">
+                <span style="font-size: 1.5rem;">📹</span>
+                <div style="font-size: 0.88rem; font-weight: 600; margin-top: 0.25rem;">Walkthrough Video (MP4, MOV)</div>
+                <small style="color: var(--text-muted);">Demonstration walkthrough tour will be attached automatically.</small>
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="post-landlord-name">Your Full Name / Business *</label>
+                <input type="text" id="post-landlord-name" class="form-input" placeholder="e.g. Nana Yaw Poku" required>
+              </div>
+
+              <div class="form-group">
+                <label for="post-landlord-phone">Contact Phone / WhatsApp *</label>
+                <input type="tel" id="post-landlord-phone" class="form-input" placeholder="e.g. 024 456 7890" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wizard Action Buttons -->
+          <div class="wizard-actions">
+            <button type="button" class="btn btn-secondary" id="btn-wizard-prev" style="display: none;">
+              &larr; Previous Step
+            </button>
+            <div style="margin-left: auto;">
+              <button type="button" class="btn btn-primary" id="btn-wizard-next">
+                Next Step &rarr;
+              </button>
+              <button type="submit" class="btn btn-accent btn-lg" id="btn-wizard-submit" style="display: none;">
+                Publish Room Listing 🚀
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- Right Column: Live Room Card Preview -->
+      <aside class="live-preview-box">
+        <div class="preview-badge-header">
+          <span>👁️</span>
+          <span>Live Renter View Preview</span>
+        </div>
+
+        <article class="room-card" style="box-shadow: var(--shadow-md);">
+          <div class="room-card-media">
+            <img id="live-preview-img" src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1000&q=80" alt="Preview Room">
+            <div class="room-badge-stack">
+              <span class="badge badge-verified">✓ Verified Room</span>
+              <span class="badge badge-video">📹 Video Tour</span>
+              <span class="badge badge-advance" id="live-preview-advance">1 Year Advance</span>
+            </div>
+            <button class="btn-fav" title="Save Room" type="button">♥</button>
+          </div>
+
+          <div class="room-card-body">
+            <div class="room-card-price-row">
+              <div class="room-price" id="live-preview-price">GH₵ 750<span class="room-price-term"> / month</span></div>
+            </div>
+
+            <h3 class="room-title" id="live-preview-title">
+              Room Title Will Appear Here
+            </h3>
+
+            <div class="room-location">
+              <span>📍</span>
+              <span id="live-preview-location">Ayeduase, Kumasi (Ashanti)</span>
+            </div>
+
+            <div class="room-facilities-preview" id="live-preview-facilities">
+              <span class="facility-chip">✓ Self Meter</span>
+              <span class="facility-chip">✓ Gated</span>
+              <span class="facility-chip">✓ Poly Tank</span>
+            </div>
+
+            <div class="room-card-footer">
+              <div class="landlord-meta">
+                <div class="landlord-avatar">L</div>
+                <span id="live-preview-landlord">Landlord Name</span>
+              </div>
+              <span class="btn btn-sm btn-primary" style="pointer-events: none;">View Details &rarr;</span>
+            </div>
+          </div>
+        </article>
+
+        <div style="margin-top: 1.5rem; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 1rem; font-size: 0.85rem; color: #166534;">
+          💡 <strong>Tip for Landlords:</strong> Real photos and honest facility descriptions help your room rent out within days because renters know what they are getting before visiting!
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>RoomHuntah 🇬🇭</h4>
+          <p>The dedicated digital room rental platform for Ghana. Helping landlords connect directly with serious tenants.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Find a Room</a></li>
+            <li><a href="post-room.html">Post a Room</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Support</h5>
+          <ul class="footer-links">
+            <li><a href="about.html">Landlord Guidelines</a></li>
+            <li><a href="about.html">Safety Policies</a></li>
+            <li><a href="about.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Direct Contact</h5>
+          <p style="font-size: 0.85rem; color: #cbd5e1;">
+            Kumasi &amp; Accra, Ghana<br>
+            WhatsApp Support: +233 24 000 0000
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 RoomHuntah. All rights reserved. Built for Ghana 🇬🇭.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/post-room.js"></script>
+</body>
+</html>

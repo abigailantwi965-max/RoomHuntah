@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find a Room in Ghana — RoomHuntah</title>
+  <meta name="description" content="Browse authentic single rooms, chamber and hall self-contained, and apartments across Kumasi, Accra, Cape Coast, and more. Filter by price, self-meter, and facilities.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-logo" id="brand-logo">
+        <span class="brand-icon">RH</span>
+        <span>RoomHuntah</span>
+        <div class="brand-gh-flag" title="Ghana Flag">
+          <span style="background: var(--ghana-red);"></span>
+          <span style="background: var(--ghana-yellow);"></span>
+          <span style="background: var(--ghana-green);"></span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="rooms.html" class="nav-link active">Find a Room</a></li>
+          <li><a href="post-room.html" class="nav-link">Post a Room</a></li>
+          <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="post-room.html" class="btn btn-primary btn-sm">+ Post a Room (Free)</a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Slide Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+        <li><a href="rooms.html" class="mobile-nav-link">Find a Room</a></li>
+        <li><a href="post-room.html" class="mobile-nav-link">Post a Room</a></li>
+        <li><a href="how-it-works.html" class="mobile-nav-link">How It Works</a></li>
+        <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+      </ul>
+      <div style="margin-top: 0.5rem;">
+        <a href="post-room.html" class="btn btn-primary" style="width: 100%;">+ Post a Room (Free)</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="search-page-layout">
+      <!-- Left: Filter Sidebar -->
+      <aside class="filter-sidebar" id="filter-sidebar">
+        <div class="filter-header">
+          <h2 class="filter-title">Filter Rooms</h2>
+          <button type="button" class="btn-reset-filters" id="btn-reset-all">Reset All</button>
+        </div>
+
+        <!-- Location Search -->
+        <div class="filter-group">
+          <label class="filter-label" for="filter-location">Location / Area</label>
+          <input type="text" id="filter-location" class="form-input" placeholder="e.g. Ayeduase, Madina..." autocomplete="off">
+        </div>
+
+        <!-- Region Selector -->
+        <div class="filter-group">
+          <label class="filter-label" for="filter-region">Region</label>
+          <select id="filter-region" class="form-select">
+            <option value="">All Regions</option>
+            <option value="Greater Accra">Greater Accra</option>
+            <option value="Ashanti">Ashanti</option>
+            <option value="Central">Central</option>
+            <option value="Eastern">Eastern</option>
+            <option value="Western">Western</option>
+          </select>
+        </div>
+
+        <!-- Room Type -->
+        <div class="filter-group">
+          <label class="filter-label">Room Type</label>
+          <div class="filter-checkbox-list">
+            <label class="checkbox-item">
+              <input type="checkbox" name="roomType" value="single-room">
+              <span>Single Room Self-Contained</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="roomType" value="chamber-and-hall">
+              <span>Chamber &amp; Hall Self-Contained</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="roomType" value="two-bedroom">
+              <span>2-Bedroom Flat / House</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Maximum Monthly Rent Slider -->
+        <div class="filter-group">
+          <label class="filter-label" for="filter-price-slider">Maximum Monthly Rent</label>
+          <input type="range" id="filter-price-slider" class="price-range-slider" min="300" max="2500" step="50" value="2500">
+          <div class="price-range-values">
+            <span>GH₵ 300</span>
+            <span id="filter-price-val" style="color: var(--primary); font-weight: 800;">Any Price</span>
+          </div>
+        </div>
+
+        <!-- Essential Ghanaian Facilities -->
+        <div class="filter-group">
+          <label class="filter-label">Essential Facilities</label>
+          <div class="filter-checkbox-list">
+            <label class="checkbox-item">
+              <input type="checkbox" name="facility" value="self prepaid meter">
+              <span>⚡ Self ECG Meter</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="facility" value="poly tank">
+              <span>💧 Poly Tank / Constant Water</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="facility" value="gated compound">
+              <span>🛡️ Gated Compound</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="facility" value="w/c inside">
+              <span>🚿 W/C Inside</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="facility" value="kitchen">
+              <span>🍳 Personal Kitchen</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="facility" value="car parking">
+              <span>🚗 Car Parking</span>
+            </label>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right: Results Feed -->
+      <section class="results-area" aria-label="Room Search Results">
+        <!-- Top Controls Bar -->
+        <div class="search-results-topbar">
+          <div class="results-count">
+            Showing <span id="results-count-number">0</span> available rooms
+          </div>
+
+          <div class="sort-wrapper">
+            <label for="sort-by">Sort by:</label>
+            <select id="sort-by" class="sort-select">
+              <option value="newest">Newest First</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Room Cards Grid -->
+        <div class="rooms-grid" id="rooms-results-grid">
+          <!-- Populated by js/rooms.js -->
+        </div>
+
+        <!-- Empty State (Hidden by default) -->
+        <div class="empty-state" id="empty-results-state" style="display: none;">
+          <div class="empty-state-icon">🔍</div>
+          <h3>No matching rooms found</h3>
+          <p>We couldn't find any rooms that match all your selected filters. Try widening your price range or unchecking some facilities.</p>
+          <button type="button" class="btn btn-outline" onclick="document.getElementById('btn-reset-all').click()">
+            Reset All Filters
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>RoomHuntah 🇬🇭</h4>
+          <p>The dedicated digital room rental platform for Ghana. Helping renters discover authentic rooms, inspect videos, and avoid unnecessary walking and middleman fees.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Find a Room</a></li>
+            <li><a href="post-room.html">Post a Room</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Popular Regions</h5>
+          <ul class="footer-links">
+            <li><a href="rooms.html?region=Greater+Accra">Greater Accra Region</a></li>
+            <li><a href="rooms.html?region=Ashanti">Ashanti Region</a></li>
+            <li><a href="rooms.html?region=Central">Central Region</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Safety Warning</h5>
+          <p style="font-size: 0.82rem; color: #94a3b8; line-height: 1.5; background: #1e293b; padding: 0.85rem; border-radius: 8px; border-left: 3px solid var(--accent-gold);">
+            ⚠️ Always physically visit the room and meet the landlord before making any financial commitments.
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 RoomHuntah. All rights reserved. Built for Ghana 🇬🇭.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/rooms.js"></script>
+</body>
+</html>

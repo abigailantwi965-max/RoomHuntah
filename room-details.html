@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Room Details — RoomHuntah</title>
+  <meta name="description" content="View authentic photos, watch video walkthrough, check facilities, and enquire directly from the landlord on RoomHuntah.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-logo" id="brand-logo">
+        <span class="brand-icon">RH</span>
+        <span>RoomHuntah</span>
+        <div class="brand-gh-flag" title="Ghana Flag">
+          <span style="background: var(--ghana-red);"></span>
+          <span style="background: var(--ghana-yellow);"></span>
+          <span style="background: var(--ghana-green);"></span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="rooms.html" class="nav-link active">Find a Room</a></li>
+          <li><a href="post-room.html" class="nav-link">Post a Room</a></li>
+          <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="rooms.html" class="btn btn-outline btn-sm">&larr; Back to Search</a>
+        <a href="post-room.html" class="btn btn-primary btn-sm">+ Post a Room</a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Slide Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+        <li><a href="rooms.html" class="mobile-nav-link">Find a Room</a></li>
+        <li><a href="post-room.html" class="mobile-nav-link">Post a Room</a></li>
+        <li><a href="how-it-works.html" class="mobile-nav-link">How It Works</a></li>
+        <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+      </ul>
+      <div style="margin-top: 0.5rem;">
+        <a href="rooms.html" class="btn btn-outline" style="width: 100%; margin-bottom: 0.5rem;">&larr; Back to Search</a>
+        <a href="post-room.html" class="btn btn-primary" style="width: 100%;">+ Post a Room</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> &rsaquo;
+      <a href="rooms.html">Rooms for Rent</a> &rsaquo;
+      <span id="crumb-region">Region</span> &rsaquo;
+      <span id="crumb-city">City</span> &rsaquo;
+      <strong id="crumb-title" style="color: var(--text-main);">Loading Room...</strong>
+    </nav>
+
+    <!-- Error State (If room not found) -->
+    <div id="room-not-found" class="empty-state" style="display: none; margin: 3rem 0;">
+      <div class="empty-state-icon">⚠️</div>
+      <h2>Room Listing Not Found</h2>
+      <p>The room you are looking for might have been taken or moved.</p>
+      <a href="rooms.html" class="btn btn-primary">Browse Other Available Rooms &rarr;</a>
+    </div>
+
+    <!-- Main Room Details Grid -->
+    <div id="room-details-content" class="details-layout">
+      <!-- Left Column: Media & Specifications -->
+      <div class="details-main-content">
+        <!-- Title & Location Header -->
+        <div style="margin-bottom: 1.5rem;">
+          <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; flex-wrap: wrap;">
+            <span class="badge badge-verified">✓ Verified Room</span>
+            <span class="badge badge-advance" id="detail-advance-term">1 Year Advance</span>
+            <span class="badge" style="background: #e0f2fe; color: #0369a1; font-weight: 700;">🟢 Available Now</span>
+          </div>
+          <h1 id="detail-title" class="hero-title" style="font-size: 2.2rem; margin-bottom: 0.4rem; text-align: left;">
+            Loading Room Title...
+          </h1>
+          <div class="room-location" style="font-size: 1rem;">
+            <span>📍</span>
+            <span id="detail-location">Location Loading...</span>
+          </div>
+        </div>
+
+        <!-- Photo Gallery Showcase -->
+        <div class="gallery-container">
+          <div class="main-photo-wrapper">
+            <img id="gallery-main-img" src="" alt="Room photo">
+          </div>
+          <div class="gallery-thumbnails" id="gallery-thumbnails-reel">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Video Walkthrough Player -->
+        <div class="walkthrough-video-box" id="video-walkthrough-section">
+          <div class="video-box-header">
+            <div class="video-box-title">
+              <span>📹</span>
+              <span>Room Walkthrough Video Tour</span>
+            </div>
+            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.15); padding: 0.2rem 0.6rem; border-radius: 4px;">
+              See Actual Space Before Travelling
+            </span>
+          </div>
+
+          <div class="video-player-container">
+            <video id="room-video-player" controls preload="metadata">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <p style="font-size: 0.82rem; color: #94a3b8; margin-top: 0.75rem;">
+            💡 <em>Tip: Watch the video walkthrough to verify ceiling condition, window ventilation, room dimensions, and bathroom finish.</em>
+          </p>
+        </div>
+
+        <!-- Key Property Specifications -->
+        <div class="details-section-card">
+          <h2 class="details-section-title">Rental Specifications</h2>
+          <div class="specs-grid">
+            <div class="spec-item">
+              <span class="spec-label">Monthly Rent</span>
+              <span class="spec-value" id="detail-price" style="color: var(--primary);">GH₵ 0</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Room Type</span>
+              <span class="spec-value" id="detail-type">-</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Bedrooms</span>
+              <span class="spec-value" id="detail-bedrooms">1</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Bathrooms</span>
+              <span class="spec-value" id="detail-bathrooms">1</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Refundable Security Deposit</span>
+              <span class="spec-value" id="detail-deposit">GH₵ 0</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Electricity Meter</span>
+              <span class="spec-value" style="color: var(--primary);">Personal ECG Prepaid</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Facilities & Amenities Checklist -->
+        <div class="details-section-card">
+          <h2 class="details-section-title">Facilities &amp; Amenities</h2>
+          <div class="facilities-checklist" id="detail-facilities-list">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Room Description -->
+        <div class="details-section-card">
+          <h2 class="details-section-title">About This Rental Room</h2>
+          <p id="detail-description" style="color: var(--text-main); font-size: 1rem; line-height: 1.7; white-space: pre-line;">
+            Loading description...
+          </p>
+        </div>
+
+        <!-- Safety & Reporting -->
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 1.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); margin-top: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <div style="font-weight: 700; font-size: 0.95rem;">Notice anything suspicious with this room?</div>
+            <div style="font-size: 0.82rem; color: var(--text-muted);">Fake listing, inaccurate rent, or agent impersonation.</div>
+          </div>
+          <button type="button" class="btn btn-sm btn-secondary" id="btn-report-listing" style="color: var(--ghana-red); border-color: #fecaca;">
+            🚩 Report Listing
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Column: Sticky Rent Summary & "I'm Interested" Action -->
+      <aside class="details-sidebar-card">
+        <div class="sidebar-price-header">
+          <div style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem;">
+            Monthly Rent
+          </div>
+          <div class="sidebar-main-price" id="sidebar-price">GH₵ 0</div>
+          <div class="sidebar-advance-info">
+            <span>Advance Required:</span>
+            <span class="sidebar-advance-pill" id="sidebar-advance-term">1 Year Advance</span>
+          </div>
+        </div>
+
+        <!-- Landlord Mini Profile -->
+        <div class="landlord-quick-card">
+          <div class="landlord-avatar-lg" id="landlord-avatar-letter">L</div>
+          <div>
+            <div style="font-weight: 700; font-size: 1rem;" id="landlord-name">Landlord Name</div>
+            <div style="font-size: 0.82rem; color: var(--primary); font-weight: 600;" id="landlord-role">Property Owner</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);" id="landlord-since">Active since 2024</div>
+          </div>
+        </div>
+
+        <!-- Call to Action Buttons -->
+        <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+          <button type="button" class="btn btn-primary btn-lg btn-trigger-enquiry" id="btn-select-room" style="width: 100%;">
+            👉 I'm Interested / Select This Room
+          </button>
+
+          <div style="background: var(--bg-surface); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); text-align: center;">
+            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.35rem;">Direct Phone Contact:</div>
+            <div id="landlord-phone-text" style="font-weight: 700; font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.35rem;">
+              +233 •• ••• ••••
+            </div>
+            <button type="button" class="btn btn-sm btn-outline" id="btn-reveal-phone" style="width: 100%;">
+              📞 Reveal Phone Number
+            </button>
+          </div>
+        </div>
+
+        <!-- Safety Notice Box -->
+        <div class="safety-warning-box">
+          <strong>Ghana Renter Safety Notice</strong>
+          Do not pay money (MoMo or cash) for advance rent or inspection without meeting the landlord at the physical property first.
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- "I'm Interested" Tenant Enquiry Modal -->
+  <div class="modal-overlay" id="enquiry-modal-overlay">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" id="btn-close-modal" aria-label="Close modal">&times;</button>
+      
+      <div style="display: inline-block; background: var(--primary-light); color: var(--primary); padding: 0.25rem 0.65rem; border-radius: 999px; font-size: 0.78rem; font-weight: 700; margin-bottom: 0.75rem;">
+        Direct Landlord Enquiry
+      </div>
+      <h3 class="modal-title">I'm Interested in this Room</h3>
+      <p class="modal-subtitle">
+        Fill in your details below. The landlord will receive your enquiry immediately to schedule an in-person walkthrough.
+      </p>
+
+      <div class="enquiry-room-summary" id="modal-room-summary-text">
+        Loading room summary...
+      </div>
+
+      <form id="room-enquiry-form">
+        <div class="form-group">
+          <label for="enq-name">Your Full Name *</label>
+          <input type="text" id="enq-name" class="form-input" placeholder="e.g. Kofi Mensah" required autocomplete="name">
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="enq-phone">Phone / WhatsApp *</label>
+            <input type="tel" id="enq-phone" class="form-input" placeholder="e.g. 024 123 4567" required autocomplete="tel">
+          </div>
+
+          <div class="form-group">
+            <label for="enq-email">Email Address</label>
+            <input type="email" id="enq-email" class="form-input" placeholder="kofi@example.com" autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="enq-move-in">Preferred Move-in Date *</label>
+          <input type="date" id="enq-move-in" class="form-input" required>
+        </div>
+
+        <div class="form-group">
+          <label for="enq-message">Message for Landlord</label>
+          <textarea id="enq-message" class="form-input" rows="3" placeholder="e.g. Hello, I am very interested in this room. Is it available for 1 year advance and when can I inspect it?"></textarea>
+        </div>
+
+        <div style="background: #f8fafc; padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); margin-bottom: 1.25rem;">
+          <label class="checkbox-item" style="font-size: 0.82rem; color: var(--text-muted);">
+            <input type="checkbox" required checked>
+            <span>I understand I should physically inspect this room before paying any money.</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+          Submit My Enquiry &rarr;
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>RoomHuntah 🇬🇭</h4>
+          <p>The dedicated digital room rental platform for Ghana. Helping renters discover authentic rooms, inspect videos, and avoid unnecessary walking and middleman fees.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Find a Room</a></li>
+            <li><a href="post-room.html">Post a Room</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Direct Contact</h5>
+          <ul class="footer-links">
+            <li><span>📍 Kumasi &amp; Accra, Ghana</span></li>
+            <li><span>📞 +233 24 000 0000</span></li>
+            <li><span>✉️ info@roomhuntah.com</span></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Important Warning</h5>
+          <p style="font-size: 0.82rem; color: #94a3b8; line-height: 1.5; background: #1e293b; padding: 0.85rem; border-radius: 8px; border-left: 3px solid var(--accent-gold);">
+            ⚠️ Always insist on seeing the room in person and checking the ECG meter before paying advance rent.
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 RoomHuntah. All rights reserved. Built for Ghana 🇬🇭.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/room-details.js"></script>
+</body>
+</html>
