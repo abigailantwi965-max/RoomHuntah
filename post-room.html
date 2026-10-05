@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Post a Room for Rent in Ghana — RoomHuntah</title>
-  <meta name="description" content="Landlords and property managers: post your available room in Accra, Kumasi, Cape Coast or across Ghana for free. Connect directly with serious renters.">
+  <title>Post a Room in Kumasi — RoomHuntah</title>
+  <meta name="description" content="Post an available room in any Kumasi area with authentic photos and a walkthrough video.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
 </head>
@@ -92,8 +92,19 @@
 
             <div class="form-group">
               <label for="post-title">Listing Title *</label>
-              <input type="text" id="post-title" class="form-input" placeholder="e.g. Clean Chamber and Hall Self-Contained at Ayeduase" required>
-              <small>Use a descriptive title highlighting the room type and general area.</small>
+              <input type="text" id="post-title" class="form-input" placeholder="e.g. Unfurnished Chamber and Hall Self-Contained at Ayeduase" required>
+              <small>Use a descriptive title highlighting the room type and general Kumasi area.</small>
+            </div>
+
+            <div class="form-group">
+              <label>Furnishing Status</label>
+              <div style="background: #e0f2fe; color: #0369a1; padding: 0.65rem 0.85rem; border-radius: 8px; font-size: 0.88rem; font-weight: 700; border: 1px solid #bae6fd; display: flex; align-items: center; gap: 0.5rem;">
+                <span>🈳</span>
+                <span>100% Unfurnished / Empty Room Standard</span>
+              </div>
+              <small style="color: var(--text-muted); display: block; margin-top: 0.35rem;">
+                All RoomHuntah Kumasi listings are vacant, unfurnished spaces ready for renters to bring their own furnishings.
+              </small>
             </div>
 
             <div class="form-row-2">
@@ -142,21 +153,14 @@
             <div class="form-group">
               <label for="post-region">Region *</label>
               <select id="post-region" class="form-select" required>
-                <option value="">Select Region</option>
-                <option value="Greater Accra">Greater Accra</option>
-                <option value="Ashanti">Ashanti</option>
-                <option value="Central">Central</option>
-                <option value="Eastern">Eastern</option>
-                <option value="Western">Western</option>
-                <option value="Volta">Volta</option>
-                <option value="Northern">Northern</option>
+                <option value="Ashanti" selected>Ashanti Region</option>
               </select>
             </div>
 
             <div class="form-row-2">
               <div class="form-group">
                 <label for="post-city">City / Town *</label>
-                <input type="text" id="post-city" class="form-input" placeholder="e.g. Kumasi, Accra, Cape Coast" required>
+                <input type="text" id="post-city" class="form-input" value="Kumasi" readonly required>
               </div>
 
               <div class="form-group">
@@ -225,19 +229,21 @@
               <div class="upload-dropzone" onclick="document.getElementById('post-photo-upload').click()">
                 <div class="upload-icon">📸</div>
                 <strong style="display: block; font-size: 1rem; margin-bottom: 0.25rem;">Click to Select Room Photos</strong>
-                <span style="font-size: 0.85rem; color: var(--text-muted);">PNG, JPG, or JPEG (Max 10MB)</span>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Real empty-room photos, PNG/JPG/JPEG (Max 10MB each)</span>
                 <input type="file" id="post-photo-upload" multiple accept="image/*" style="display: none;">
               </div>
               <div class="image-preview-reel" id="uploaded-photos-reel"></div>
             </div>
 
             <div class="form-group">
-              <label>Room Walkthrough Video (Optional)</label>
-              <div class="upload-dropzone" style="padding: 1.25rem;">
+              <label for="post-video-upload">Room Walkthrough Video (Recommended)</label>
+              <div class="upload-dropzone" style="padding: 1.25rem;" onclick="document.getElementById('post-video-upload').click()">
                 <span style="font-size: 1.5rem;">📹</span>
-                <div style="font-size: 0.88rem; font-weight: 600; margin-top: 0.25rem;">Walkthrough Video (MP4, MOV)</div>
-                <small style="color: var(--text-muted);">Demonstration walkthrough tour will be attached automatically.</small>
+                <div style="font-size: 0.88rem; font-weight: 600; margin-top: 0.25rem;">Walkthrough Video (MP4, MOV, WebM)</div>
+                <small style="color: var(--text-muted);">Upload a video showing the actual empty room.</small>
+                <input type="file" id="post-video-upload" accept="video/*" style="display: none;">
               </div>
+              <div id="uploaded-video-info" style="margin-top: 0.5rem; display: none; font-size: 0.88rem; color: #166534; background: #f0fdf4; padding: 0.6rem 0.85rem; border-radius: 6px; border: 1px solid #bbf7d0;"></div>
             </div>
 
             <div class="form-row-2">
@@ -353,7 +359,7 @@
         <div class="footer-col">
           <h5>Direct Contact</h5>
           <p style="font-size: 0.85rem; color: #cbd5e1;">
-            Kumasi &amp; Accra, Ghana<br>
+            Kumasi, Ashanti Region<br>
             WhatsApp Support: +233 24 000 0000
           </p>
         </div>
@@ -365,8 +371,8 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/data.js"></script>
-  <script src="js/common.js"></script>
-  <script src="js/post-room.js"></script>
+  <script src="js/data.js?v=2.1"></script>
+  <script src="js/common.js?v=2.1"></script>
+  <script src="js/post-room.js?v=2.1"></script>
 </body>
 </html>

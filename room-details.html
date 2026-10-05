@@ -88,6 +88,8 @@
         <div style="margin-bottom: 1.5rem;">
           <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; flex-wrap: wrap;">
             <span class="badge badge-verified">✓ Verified Room</span>
+            <span class="badge badge-unfurnished" style="background: #0284c7; color: #fff; font-weight: 700;">🈳 100% Unfurnished / Empty</span>
+            <span class="badge badge-video" style="background: #1e293b; color: #fff;">📹 Real Walkthrough Video</span>
             <span class="badge badge-advance" id="detail-advance-term">1 Year Advance</span>
             <span class="badge" style="background: #e0f2fe; color: #0369a1; font-weight: 700;">🟢 Available Now</span>
           </div>
@@ -97,6 +99,15 @@
           <div class="room-location" style="font-size: 1rem;">
             <span>📍</span>
             <span id="detail-location">Location Loading...</span>
+          </div>
+        </div>
+
+        <!-- Empty / Unfurnished Room Alert Banner -->
+        <div style="background: #f0f9ff; border: 1px solid #bae6fd; border-left: 4px solid #0284c7; border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+          <span style="font-size: 1.8rem;">🈳</span>
+          <div>
+            <strong style="color: #0369a1; font-size: 0.98rem; display: block;">100% Vacant &amp; Unfurnished Room</strong>
+            <span style="font-size: 0.88rem; color: #334155;">This rental is completely empty with clean bare tiled floors and clean walls. You bring your own mattress, wardrobe, and furniture to customize your space.</span>
           </div>
         </div>
 
@@ -139,6 +150,10 @@
             <div class="spec-item">
               <span class="spec-label">Monthly Rent</span>
               <span class="spec-value" id="detail-price" style="color: var(--primary);">GH₵ 0</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Furnishing Status</span>
+              <span class="spec-value" style="color: #0284c7; font-weight: 800;">100% Unfurnished / Empty</span>
             </div>
             <div class="spec-item">
               <span class="spec-label">Room Type</span>
@@ -319,8 +334,8 @@
         <div class="footer-col">
           <h5>Direct Contact</h5>
           <ul class="footer-links">
-            <li><span>📍 Kumasi &amp; Accra, Ghana</span></li>
-            <li><span>📞 +233 24 000 0000</span></li>
+            <li><span>📍 Kumasi, Ashanti Region, Ghana</span></li>
+            <li><span>📞 +233 24 412 8901</span></li>
             <li><span>✉️ info@roomhuntah.com</span></li>
           </ul>
         </div>
@@ -338,8 +353,8 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/data.js"></script>
-  <script src="js/common.js"></script>
-  <script src="js/room-details.js"></script>
+  <script src="js/data.js?v=2.1"></script>
+  <script src="js/common.js?v=2.1"></script>
+  <script src="js/room-details.js?v=2.1"></script>
 </body>
 </html>

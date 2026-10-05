@@ -51,9 +51,19 @@ document.addEventListener("DOMContentLoaded", () => {
     applyFilters();
   });
 
+  let loadedRooms = [];
+
   // Filter application
-  function applyFilters() {
-    let allRooms = getRooms();
+  async function applyFilters(forceRefresh = false) {
+    if (loadedRooms.length === 0 || forceRefresh) {
+      if (typeof fetchRooms === "function") {
+        loadedRooms = await fetchRooms();
+      } else {
+        loadedRooms = getRooms();
+      }
+    }
+
+    let allRooms = loadedRooms;
     const queryLocation = (locationInput.value || "").trim().toLowerCase();
     const selectedRegion = regionSelect.value;
     const maxPrice = parseInt(priceSlider.value, 10);
@@ -98,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (selectedFacilities.length > 0) {
         const roomFacsLower = (room.facilities || []).map(f => f.toLowerCase());
         const hasAllFacilities = selectedFacilities.every(reqFac => {
+          if (reqFac === "video") return room.hasVideo === true;
           return roomFacsLower.some(rf => rf.includes(reqFac));
         });
         if (!hasAllFacilities) return false;
@@ -114,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
       filtered.sort((a, b) => b.rent - a.rent);
     } else {
       // "newest" by default
-      filtered.sort((a, b) => new Date(b.datePosted) - new Date(a.datePosted));
+      filtered.sort((a, b) => new Date(b.datePosted || 0) - new Date(a.datePosted || 0));
     }
 
     // Render results
@@ -134,11 +145,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Event Listeners for live filtering
-  locationInput.addEventListener("input", applyFilters);
-  regionSelect.addEventListener("change", applyFilters);
-  sortSelect.addEventListener("change", applyFilters);
-  typeCheckboxes.forEach(cb => cb.addEventListener("change", applyFilters));
-  facilityCheckboxes.forEach(cb => cb.addEventListener("change", applyFilters));
+  locationInput.addEventListener("input", () => applyFilters(false));
+  regionSelect.addEventListener("change", () => applyFilters(false));
+  sortSelect.addEventListener("change", () => applyFilters(false));
+  typeCheckboxes.forEach(cb => cb.addEventListener("change", () => applyFilters(false)));
+  facilityCheckboxes.forEach(cb => cb.addEventListener("change", () => applyFilters(false)));
 
   // Reset Button
   if (resetBtn) {
@@ -150,11 +161,11 @@ document.addEventListener("DOMContentLoaded", () => {
       sortSelect.value = "newest";
       typeCheckboxes.forEach(cb => cb.checked = false);
       facilityCheckboxes.forEach(cb => cb.checked = false);
-      applyFilters();
+      applyFilters(false);
       showToast("Filters reset to default", "info");
     });
   }
 
-  // Initial run
-  applyFilters();
+  // Initial run: fetch fresh rooms from backend API
+  applyFilters(true);
 });

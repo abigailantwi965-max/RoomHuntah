@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Find a Room in Ghana — RoomHuntah</title>
-  <meta name="description" content="Browse authentic single rooms, chamber and hall self-contained, and apartments across Kumasi, Accra, Cape Coast, and more. Filter by price, self-meter, and facilities.">
+  <title>Find an Empty Room in Kumasi — RoomHuntah</title>
+  <meta name="description" content="Browse authentic unfurnished empty rooms across Kumasi (Ayeduase, Kotei, Ahodwo, Asokwa) with real photos, walkthrough videos, and clear facilities.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
 </head>
@@ -65,26 +65,30 @@
       <!-- Left: Filter Sidebar -->
       <aside class="filter-sidebar" id="filter-sidebar">
         <div class="filter-header">
-          <h2 class="filter-title">Filter Rooms</h2>
+          <h2 class="filter-title">Filter Kumasi Rooms</h2>
           <button type="button" class="btn-reset-filters" id="btn-reset-all">Reset All</button>
         </div>
 
         <!-- Location Search -->
         <div class="filter-group">
-          <label class="filter-label" for="filter-location">Location / Area</label>
-          <input type="text" id="filter-location" class="form-input" placeholder="e.g. Ayeduase, Madina..." autocomplete="off">
+          <label class="filter-label" for="filter-location">Kumasi Neighbourhood</label>
+          <input type="text" id="filter-location" class="form-input" placeholder="e.g. Ayeduase, Kotei, Ahodwo..." autocomplete="off">
+        </div>
+
+        <!-- Furnishing Filter (Kumasi Empty Rooms) -->
+        <div class="filter-group">
+          <label class="filter-label">Furnishing Status</label>
+          <div style="background: #e0f2fe; color: #0369a1; padding: 0.6rem 0.85rem; border-radius: 8px; font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; border: 1px solid #bae6fd;">
+            <span>🈳</span>
+            <span>100% Unfurnished / Empty Rooms</span>
+          </div>
         </div>
 
         <!-- Region Selector -->
         <div class="filter-group">
           <label class="filter-label" for="filter-region">Region</label>
           <select id="filter-region" class="form-select">
-            <option value="">All Regions</option>
-            <option value="Greater Accra">Greater Accra</option>
-            <option value="Ashanti">Ashanti</option>
-            <option value="Central">Central</option>
-            <option value="Eastern">Eastern</option>
-            <option value="Western">Western</option>
+            <option value="Ashanti">Ashanti Region (Kumasi)</option>
           </select>
         </div>
 
@@ -119,8 +123,12 @@
 
         <!-- Essential Ghanaian Facilities -->
         <div class="filter-group">
-          <label class="filter-label">Essential Facilities</label>
+          <label class="filter-label">Essential Facilities &amp; Media</label>
           <div class="filter-checkbox-list">
+            <label class="checkbox-item">
+              <input type="checkbox" name="facility" value="video">
+              <span>📹 Video Walkthrough Tour</span>
+            </label>
             <label class="checkbox-item">
               <input type="checkbox" name="facility" value="self prepaid meter">
               <span>⚡ Self ECG Meter</span>
@@ -154,7 +162,7 @@
         <!-- Top Controls Bar -->
         <div class="search-results-topbar">
           <div class="results-count">
-            Showing <span id="results-count-number">0</span> available rooms
+            Showing <span id="results-count-number">0</span> available rooms in Kumasi
           </div>
 
           <div class="sort-wrapper">
@@ -176,7 +184,7 @@
         <div class="empty-state" id="empty-results-state" style="display: none;">
           <div class="empty-state-icon">🔍</div>
           <h3>No matching rooms found</h3>
-          <p>We couldn't find any rooms that match all your selected filters. Try widening your price range or unchecking some facilities.</p>
+          <p>We couldn't find any Kumasi rooms that match all your selected filters. Try widening your price range or unchecking some facilities.</p>
           <button type="button" class="btn btn-outline" onclick="document.getElementById('btn-reset-all').click()">
             Reset All Filters
           </button>
@@ -205,9 +213,8 @@
         <div class="footer-col">
           <h5>Popular Regions</h5>
           <ul class="footer-links">
-            <li><a href="rooms.html?region=Greater+Accra">Greater Accra Region</a></li>
             <li><a href="rooms.html?region=Ashanti">Ashanti Region</a></li>
-            <li><a href="rooms.html?region=Central">Central Region</a></li>
+            <li><a href="rooms.html">Kumasi Areas</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -224,8 +231,8 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/data.js"></script>
-  <script src="js/common.js"></script>
-  <script src="js/rooms.js"></script>
+  <script src="js/data.js?v=2.1"></script>
+  <script src="js/common.js?v=2.1"></script>
+  <script src="js/rooms.js?v=2.1"></script>
 </body>
 </html>

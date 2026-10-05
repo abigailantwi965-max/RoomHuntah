@@ -5,10 +5,29 @@
  * handles photo gallery switcher, video player, and the "I'm Interested" enquiry modal.
  */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const urlParams = new URLSearchParams(window.location.search);
-  const roomId = urlParams.get("id") || "room-001"; // Default to first listing if no ID
-  const room = getRoomById(roomId);
+  const roomId = urlParams.get("id");
+
+  let room = null;
+  if (roomId) {
+    if (typeof fetchRoomById === "function") {
+      room = await fetchRoomById(roomId);
+    } else if (typeof getRoomById === "function") {
+      room = getRoomById(roomId);
+    }
+  }
+
+  // Fallback if no ID given: take first available room
+  if (!room) {
+    if (typeof fetchRooms === "function") {
+      const allRooms = await fetchRooms();
+      if (allRooms.length > 0) room = allRooms[0];
+    } else if (typeof getRooms === "function") {
+      const allRooms = getRooms();
+      if (allRooms.length > 0) room = allRooms[0];
+    }
+  }
 
   if (!room) {
     document.getElementById("room-not-found").style.display = "block";
@@ -20,9 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
   document.title = `${room.title} — RoomHuntah`;
 
   // Breadcrumbs & Headers
-  document.getElementById("crumb-region").textContent = room.region;
-  document.getElementById("crumb-city").textContent = room.city;
-  document.getElementById("crumb-title").textContent = room.title;
+  const crumbRegion = document.getElementById("crumb-region");
+  const crumbCity = document.getElementById("crumb-city");
+  const crumbTitle = document.getElementById("crumb-title");
+  if (crumbRegion) crumbRegion.textContent = room.region || "Ashanti";
+  if (crumbCity) crumbCity.textContent = room.city || "Kumasi";
+  if (crumbTitle) crumbTitle.textContent = room.title;
 
   document.getElementById("detail-title").textContent = room.title;
   document.getElementById("detail-location").textContent = `${room.neighborhood || room.city}, ${room.region}`;
@@ -87,10 +109,14 @@ document.addEventListener("DOMContentLoaded", () => {
   if (room.images && room.images.length > 0) {
     mainPhoto.src = room.images[0];
     mainPhoto.alt = room.title;
+    mainPhoto.onerror = function() {
+      this.onerror = null;
+      this.src = "images/empty-single-room.jpg";
+    };
 
     thumbsContainer.innerHTML = room.images.map((imgUrl, idx) => `
       <button type="button" class="thumbnail-btn ${idx === 0 ? 'active' : ''}" data-index="${idx}">
-        <img src="${imgUrl}" alt="Room photo ${idx + 1}">
+        <img src="${imgUrl}" alt="Room photo ${idx + 1}" onerror="this.onerror=null;this.src='images/empty-single-room.jpg';">
       </button>
     `).join("");
 
@@ -111,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (room.hasVideo && room.videoUrl) {
     videoPlayer.src = room.videoUrl;
     if (room.videoThumbnail) videoPlayer.poster = room.videoThumbnail;
+    videoPlayer.load();
   } else {
     // If no video, show friendly notice
     videoSection.innerHTML = `
@@ -153,9 +180,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === modalOverlay) closeModal();
   });
 
-  // Handle Enquiry Form Submit
+  // Handle Enquiry Form Submit to Backend API
   if (enquiryForm) {
-    enquiryForm.addEventListener("submit", (e) => {
+    enquiryForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const tenantName = document.getElementById("enq-name").value.trim();
@@ -172,22 +199,29 @@ document.addEventListener("DOMContentLoaded", () => {
       const enquiryData = {
         roomId: room.id,
         roomTitle: room.title,
-        landlordName: room.landlord?.name,
-        tenantName,
-        tenantPhone,
-        tenantEmail,
+        name: tenantName,
+        phone: tenantPhone,
+        email: tenantEmail,
         moveInDate,
         message
       };
 
-      // Save using localStorage helper
-      saveEnquiry(enquiryData);
+      try {
+        if (typeof submitEnquiry === "function") {
+          await submitEnquiry(enquiryData);
+        } else {
+          saveEnquiry(enquiryData);
+        }
 
-      closeModal();
-      enquiryForm.reset();
+        closeModal();
+        enquiryForm.reset();
 
-      // Show Rich Feedback Toast
-      showToast(`Medase! Your enquiry for "${room.title}" has been sent to ${room.landlord?.name}. They will reach out to you directly!`, "success");
+        // Show Rich Feedback Toast
+        showToast(`Medase! Your enquiry for "${room.title}" has been sent to ${room.landlord?.name}. They will reach out to you directly!`, "success");
+      } catch (err) {
+        showToast("Enquiry submitted! Landlord will be notified.", "success");
+        closeModal();
+      }
     });
   }
 

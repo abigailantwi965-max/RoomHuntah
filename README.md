@@ -25,11 +25,14 @@ roomhuntah/
 │   └── style.css           # Master stylesheet: Ghanaian green & gold palette, responsive layout, cards, modals
 │
 ├── js/
-│   ├── data.js             # Realistic sample Ghanaian listings (Kumasi, Accra, Cape Coast) & localStorage logic
+│   ├── data.js             # 100% Kumasi-based empty/unfurnished room listings with real media & localStorage logic
 │   ├── common.js           # Shared utilities (mobile hamburger drawer, toast alerts, currency formatters)
 │   ├── rooms.js            # Live search, filtering, and sorting logic for rooms.html
 │   ├── room-details.js     # Room details loader, photo gallery, video player, and enquiry submission handler
 │   └── post-room.js        # Multi-step landlord wizard, live card preview, and room publishing handler
+│
+├── images/                 # Authentic Ghanaian empty-room photographs (chamber & hall, single room, bath, kitchen)
+├── videos/                 # Local video walkthrough tours for instant offline/online playback
 │
 └── README.md               # Beginner guide and documentation (this file)
 ```

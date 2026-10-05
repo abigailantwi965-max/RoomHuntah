@@ -44,7 +44,7 @@ function renderRoomCard(room) {
   const isFav = typeof isFavourite === "function" ? isFavourite(room.id) : false;
   const mainImage = (room.images && room.images.length > 0) 
     ? room.images[0] 
-    : "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1000&q=80";
+    : "";
 
   const facilitiesMarkup = (room.facilities || []).slice(0, 3).map(f => {
     return `<span class="facility-chip">✓ ${f}</span>`;
@@ -53,6 +53,8 @@ function renderRoomCard(room) {
   const advanceBadge = room.advancePeriod 
     ? `<span class="badge badge-advance">${room.advancePeriod}</span>` 
     : '';
+
+  const unfurnishedBadge = `<span class="badge badge-unfurnished">🈳 Empty Room</span>`;
 
   const videoBadge = room.hasVideo 
     ? `<span class="badge badge-video">📹 Video Tour</span>` 
@@ -65,10 +67,13 @@ function renderRoomCard(room) {
   return `
     <article class="room-card" data-room-id="${room.id}">
       <div class="room-card-media">
-        <img src="${mainImage}" alt="${room.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1000&q=80'">
+        <a href="room-details.html?id=${room.id}" style="display: block; width: 100%; height: 100%;">
+          ${mainImage ? `<img src="${mainImage}" alt="${room.title}" loading="lazy" onerror="this.onerror=null;this.src='images/empty-single-room.jpg';">` : `<div class="room-media-missing">Photos coming soon</div>`}
+        </a>
         
         <div class="room-badge-stack">
           ${verifiedBadge}
+          ${unfurnishedBadge}
           ${videoBadge}
           ${advanceBadge}
         </div>
